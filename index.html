@@ -16,17 +16,19 @@
 <body>
 
 <div class="content">
-    <h2><strong>Deblur4DGS: 4D Gaussian Splatting from Blurry Monocular Video</strong></h2>
+    <h2><strong>Deblur4DGS: 4D Gaussian Splatting from Blurry Monocular Videos</strong></h2>
+
+    <p style="text-align:center; font-size:24px; font-weight:bold; margin:0;">
+        AAAI 2026
+    </p>
+
     <p id="authors"><a href="https://scholar.google.com/citations?user=UpOaYLoAAAAJ&hl=zh-CN">Renlong Wu</a><a
         href="https://scholar.google.com/citations?user=8pIq2N0AAAAJ&hl=zh-CN">Zhilu Zhang</a><a
         href="https://github.com/YngMgC">MingYang Chen</a><a
-        href="https://scholar.google.com/citations?user=4LsZhDgAAAAJ&hl=zh-CN&oi=ao">Xiaopeng Fan</a><a
         href="https://scholar.google.com/citations?user=I4vuL7kAAAAJ&hl=zh-CN&oi=ao">ZiFei Yan</a><a
         href="https://scholar.google.com/citations?user=rUOpCEYAAAAJ&hl=zh-CN">Wangmeng Zuo</a><br>
-    <br>
-    <!--        <span style="font-size: 24px">KAIST-->
-    <span style="font-size: 20px;">Harbin Institute of Technology</span> 
 
+    <span style="font-size: 20px;">Harbin Institute of Technology</span> 
     <p style="text-align: center;font-size: 20px;">
         <a href="https://arxiv.org/abs/2412.06424" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="https://github.com/ZcsrenlongZ/Deblur4DGS" target="_blank">[Code]</a> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -34,7 +36,7 @@
 
     </span></p>
     <br>
-    <img src="./files/project_novel_1.png" class="teaser-gif" style="width:100%;"><br>
+    <img src="./files/full_novel_vis.png" class="teaser-gif" style="width:100%;"><br>
     <p style="text-align: center;">
         Visual comparisons for novel-view synthesis. Compared with existing state-of-the-art 4D reconstruction methods, Deblur4DGS produces photo-realistc results from blurry monocular video while maintaing real-time rendering speed.
     </p>
@@ -44,16 +46,8 @@
 <div class="content">
     <h2>Abstract</h2>
     <p>
-        Recent 4D reconstruction methods have yielded impressive results but rely on sharp videos as supervision. 
-        However, motion blur often occurs in videos due to camera shake and object movement, while existing methods render blurry results when using such videos for reconstructing 4D models. 
-        Although a few NeRF-based approaches attempted to address the problem, they struggled to produce high-quality results, due to the inaccuracy in estimating continuous dynamic representations within the exposure time.
-         Encouraged by recent works in 3D motion trajectory modeling using 3D Gaussian Splatting (3DGS), we suggest taking 3DGS as the scene representation manner, and propose the first  <b>4D Gaussian Splatting</b> framework to reconstruct a high-quality 4D model from <b>blurry monocular video</b>, named <b>Deblur4DGS</b>. 
-         Specifically, we transform continuous dynamic representations estimation within an exposure time into the exposure time estimation. 
-         Moreover, we introduce exposure regularization to avoid trivial solutions, as well as multi-frame and multi-resolution consistency ones to alleviate artifacts. 
-         Furthermore, to better represent objects with large motion, we suggest blur-aware variable canonical Gaussians. 
-         Beyond novel-view synthesis, Deblur4DGS can be applied to improve blurry video from multiple perspectives, including deblurring, frame interpolation, and video stabilization. 
-         Extensive experiments on the above four tasks show that Deblur4DGS outperforms state-of-the-art 4D reconstruction methods. 
-         The codes will be publicly available.
+        Recent 4D reconstruction methods have yielded impressive results but rely on sharp videos as supervision. However, motion blur often occurs in videos due to camera shake and object movement, while existing methods render blurry results when using such videos for reconstructing 4D models. Although a few approaches attempted to address the problem, they struggled to produce high-quality results, due to the inaccuracy in estimating continuous dynamic representations within the exposure time. Encouraged by recent works in 3D motion trajectory modeling using 3D Gaussian Splatting (3DGS), we suggest taking 3DGS as the scene representation manner, and propose Deblur4DGS to reconstruct a high-quality 4D model from blurry monocular video. Specifically, we transform continuous dynamic representations estimation within an exposure time into the exposure time estimation. Moreover, we introduce the exposure
+        regularization term, multi-frame, and multi-resolution consistency regularization term to avoid trivial solutions. Furthermore, to better represent objects with large motion, we suggest blur-aware variable canonical Gaussians. Beyond novel-view synthesis, Deblur4DGS can be applied to improve blurry video from multiple perspectives, including deblurring, frame interpolation, and video stabilization. Extensive experiments in both synthetic and real-world data on the above four tasks show that Deblur4DGS outperforms state-of-the-art 4D reconstruction methods.
         </p>
 </div>
 
@@ -69,53 +63,6 @@
         To regularize the under-constrained optimization, we introduce  exposure regularization \(\mathcal{L}_{e}\), multi-frame consistency regularization \(\mathcal{L}_{mfc}\) and multi-resolution consistency regularization \(\mathcal{L}_{mrc}\).
         <b>(b) Rendering of Deblur4DGS.</b> Deblur4DGS produces the sharp image with user-provided timestamp \(t\) and camera pose \(\mathbf{P}_{t}\).</p>
     <br>
-
-</div>
-
-<div class="content">
-    <h2>Quantitative Comparisons</h2>
-    <p>Quantitative Comparisons on novel-view synthesis, deblurring, frame interpolation, and video stabilization tasks show that Deblur4DGS significantly outperforms state-of-the-art 4D reconstruction methods.</p>
-    <center>
-        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel1" data-slide-to="1"></li>
-                <li data-target="#myCarousel1" data-slide-to="2"></li>
-                <li data-target="#myCarousel1" data-slide-to="3"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="./files/project_com_quan_1.png" alt="Example 1" style="width:90%;">
-                </div>
-
-                <div class="item">
-                    <img src="./files/project_com_quan_2.png" alt="Example 2" style="width:90%;">
-                </div>
-
-                <div class="item">
-                    <img src="./files/project_com_quan_3.png" alt="Example 3" style="width:90%;">
-                </div>
-
-                <div class="item">
-                    <img src="./files/project_com_quan_4.png" alt="Example 4" style="width:90%;">
-                </div>
-
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel1" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </center>
 
 </div>
 
@@ -175,6 +122,8 @@
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel3" data-slide-to="1"></li>
+                <li data-target="#myCarousel3" data-slide-to="2"></li>
+                <li data-target="#myCarousel3" data-slide-to="3"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -184,15 +133,38 @@
                     <div class="carousel-caption-top">
                         <h1>TimeStamp 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp TimeStamp 2</h1>
                     </div>
-                    <img src="./files/FixTime_seesaw.apng" alt="Example 1" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixTime_seesaw.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <div class="item">
                     <div class="carousel-caption-top">
                         <h1>TimeStamp 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp TimeStamp 2</h1>
                     </div>
-                    <img src="./files/FixTime_skating.apng" alt="Example 3" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixTime_skating.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-
+                <div class="item">
+                    <div class="carousel-caption-top">
+                        <h1>TimeStamp 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp TimeStamp 2</h1>
+                    </div>
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixTime_toycar.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="item">
+                    <div class="carousel-caption-top">
+                        <h1>TimeStamp 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp TimeStamp 2</h1>
+                    </div>
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixTime_card.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
             <!-- Left and right controls -->
@@ -218,6 +190,8 @@
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel4" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel4" data-slide-to="1"></li>
+                <li data-target="#myCarousel4" data-slide-to="2"></li>
+                <li data-target="#myCarousel4" data-slide-to="3"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -226,16 +200,41 @@
                     <div class="carousel-caption-top">
                         <h1>View 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp View 2</h1>
                     </div>
-                    <img src="./files/FixView_seesaw.apng" alt="Example 1" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixView_seesaw.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="item">
                     <div class="carousel-caption-top">
                         <h1>View 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp View 2</h1>
                     </div>
-                    <img src="./files/FixView_skating.apng" alt="Example 2" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixView_skating.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
+                <div class="item">
+                    <div class="carousel-caption-top">
+                        <h1>View 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp View 2</h1>
+                    </div>
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixView_toycar.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="item">
+                    <div class="carousel-caption-top">
+                        <h1>View 1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp View 2</h1>
+                    </div>
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FixView_card.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
             <!-- Left and right controls -->
@@ -316,14 +315,20 @@
                     <div class="carousel-caption-top">
                         <h1>Input(Low Frame Rate) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Deblur4DGS &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp </h1>
                     </div>
-                    <img src="./files/FI-seesaw.apng" alt="Example 1" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FI-seesaw.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="item">
                     <div class="carousel-caption-top">
                         <h1>Input(Low Frame Rate) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Deblur4DGS &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp </h1>
                     </div>
-                    <img src="./files/FI-skating.apng" alt="Example 3" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/FI-skating.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
             </div>
@@ -359,16 +364,21 @@
                     <div class="carousel-caption-top">
                         <h1>Input(with Camera Shake) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Deblur4DGS &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp </h1>
                     </div>
-                    <img src="./files/stable_seesaw.apng" alt="Example 1" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/stable_seesaw.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="item">
                     <div class="carousel-caption-top">
                         <h1>Input(with Camera Shake) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Deblur4DGS &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp </h1>
                     </div>
-                    <img src="./files/stable_skating.apng" alt="Example 3" style="width:100%;">
+                    <video width="100%" autoplay loop muted playsinline>
+                        <source src="./files/stable_skating.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-
 
             </div>
 
